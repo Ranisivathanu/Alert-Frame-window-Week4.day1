@@ -22,13 +22,25 @@ public class MergeContact {
 		 driver.findElement(By.xpath("//a[contains(text(),'CRM')]")).click();
 		 driver.findElement(By.xpath("//a[contains(text(),'Contacts')]")).click();
 		 driver.findElement(By.xpath("//a[contains(text(),'Merge Contacts')]")).click();
-         driver.findElement(By.xpath("(//input[@type='text'])[29]")).sendKeys("Test");
-         driver.findElement(By.xpath("(//input[@type='text'])[30]")).sendKeys("leaf");
+		 driver.findElement(By.xpath("(//img[@alt='Lookup'])[1]")).click();
+			Set<String> windowHandles = driver.getWindowHandles();
+			List<String> newWindow=new LinkedList<String>(windowHandles);
+			driver.switchTo().window(newWindow.get(1));
+			driver.findElement(By.xpath("(//a[@class='linktext'])[1]")).click();
+			driver.switchTo().window(newWindow.get(0));
+		   driver.findElement(By.xpath("(//input[@type='text'])[30]")).sendKeys("10610");
          driver.findElement(By.xpath("//a[text()='Merge']")).click();
          Alert alert=driver.switchTo().alert();
          alert.accept();
          System.out.println(driver.getTitle());
          
+ 		
+	
+	
+	}
+
+}
+
  		
 	
 	
