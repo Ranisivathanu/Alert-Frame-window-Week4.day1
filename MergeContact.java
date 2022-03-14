@@ -25,7 +25,7 @@ public class MergeContact {
 		        //1 st tab
 		        driver.findElement(By.xpath("(//img[@alt='Lookup'])[1]")).click();
 			Set<String> windowHandles = driver.getWindowHandles();
-			List<String> newWindow=new LinkedList<String>(windowHandles);
+			List<String> newWindow=new ArrayList<String>(windowHandles);
 			driver.switchTo().window(newWindow.get(1));
 			driver.findElement(By.xpath("(//a[@class='linktext'])[1]")).click();
 			driver.switchTo().window(newWindow.get(0));
@@ -33,12 +33,12 @@ public class MergeContact {
 		//second tab
 		      driver.findElement(By.xpath("(//img[@alt='Lookup'])[2]")).click();
 			Set<String> windowHandles2 = driver.getWindowHandles();
-			List<String> newWindow2=new LinkedList<String>(windowHandles2);
+			List<String> newWindow2=new ArrayList<String>(windowHandles2);
 			driver.switchTo().window(newWindow2.get(1));
 			driver.findElement(By.xpath("(//a[@class='linktext'])[6]")).click();
 			driver.switchTo().window(newWindow2.get(0));   
 		
-		//driver.findElement(By.xpath("(//input[@type='text'])[30]")).sendKeys("10610");
+		
          driver.findElement(By.xpath("//a[text()='Merge']")).click();
          Alert alert=driver.switchTo().alert();
          alert.accept();
